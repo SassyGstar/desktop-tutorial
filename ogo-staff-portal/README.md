@@ -1,5 +1,7 @@
 # OGO Staff Portal (Demo Version)
 
+🌐 **[Try it live](https://sassygstar.github.io/desktop-tutorial/ogo-staff-portal/)**
+
 A single-file staff portal web app built for a multi-office tax firm. It includes:
 
 - 📋 Dashboard with events, announcements, tasks, and smart alerts

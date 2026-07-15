@@ -9,8 +9,31 @@ A single-file staff portal web app built for a multi-office tax firm. It include
 - 👥 Staff directory and birthdays
 - 📝 PTO / request tracking
 - 📁 Client pipeline tracker
+- 🗂️ **Client Workflow tracker** — return progress from intake through refund, with weekly management reports
 - 📊 Analytics
 - 🔄 Optional real-time sync across devices (Firebase)
+
+## Client Workflow
+
+The Client Workflow tracker is built directly into the portal (sidebar → **🗂️ Client Workflow**),
+not a separate site. It reuses the portal's login, header, colors, logo, and navigation, so there
+is no second sign-in screen. It has four tabs: **Overview**, **Client Workflow**, **Daily Log**,
+and **Weekly Report**.
+
+- **Uses the portal's signed-in user.** No extra login.
+- **Permissions.** Admins and Managers see every client. Regular staff see only the clients
+  assigned to them (as preparer or reviewer).
+- **Automatic attribution.** Every add, update, and logged contact is stamped with the
+  signed-in employee's name in both the workflow audit history and the portal Activity Log.
+- **Shared roster.** Assigned-staff and office lists come from the same employee directory
+  (`S.employees`) as the rest of the portal.
+- **Weekly reports** are generated inside the portal and can be exported to CSV or printed/saved as PDF.
+
+Workflow data lives in `S.clientWorkflow` and syncs on the portal's existing Firebase path,
+so sessions, permissions, navigation, and reporting all stay connected. It intentionally does
+**not** collect SSNs, dates of birth, bank details, passwords, or tax documents — keep those in
+TaxDome and TaxSlayer. Before entering real client names, lock down Firebase Authentication and
+database rules (see the recommended next step in the project notes).
 
 ## Try it
 

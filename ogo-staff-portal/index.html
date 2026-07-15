@@ -232,6 +232,96 @@ button,input,select,textarea{font:inherit}
   .mob-nav .navbtn{padding:9px 4px;font-size:9px;line-height:1.3;text-align:center;border-radius:10px;width:100%;margin:0}
   .tc-clock{font-size:26px}
 }
+/* ═══════════════════════════════════════════════════════════
+   CLIENT WORKFLOW (merged tracker) — scoped to #cwf and .cwf-scope
+   so it never leaks into the rest of the portal.
+   ═══════════════════════════════════════════════════════════ */
+#cwf,.cwf-scope{--line:var(--ln);--cream:#F7F9FA;--pale:#EEF5F7;--white:#fff;--muted:#5B676D;--text:#003A4C}
+#cwf .cwf-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+#cwf .cwf-tab{padding:8px 13px;border-radius:999px;border:1px solid var(--ln);background:#fff;color:var(--mu);cursor:pointer;font-size:12px;font-weight:700}
+#cwf .cwf-tab.active,#cwf .cwf-tab:hover{background:var(--navy);color:var(--gold);border-color:var(--navy)}
+#cwf .cwf-view{display:none}#cwf .cwf-view.active{display:block}
+#cwf .section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+#cwf .section-head h2{margin:0;color:var(--navy);font-size:20px}
+#cwf .section-head p{margin:4px 0 0;color:var(--muted);font-size:12px}
+#cwf .actions,.cwf-scope .modal-actions{display:flex;gap:7px;flex-wrap:wrap}
+.cwf-scope .modal-actions{justify-content:flex-end;margin-top:15px}
+#cwf .btn,.cwf-scope .btn{border:1px solid var(--line);background:#fff;color:var(--text);padding:9px 12px;border-radius:11px;font-weight:750;font-size:12px;cursor:pointer}
+#cwf .btn:hover,.cwf-scope .btn:hover{background:var(--pale)}
+#cwf .btn.primary,.cwf-scope .btn.primary{background:var(--navy);color:var(--gold);border-color:var(--navy)}
+#cwf .btn.primary:hover,.cwf-scope .btn.primary:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+#cwf .btn.danger,.cwf-scope .btn.danger{background:#FFF1F1;color:var(--red);border-color:#F2CACA}
+#cwf .btn.small,.cwf-scope .btn.small{padding:6px 9px;font-size:10px;border-radius:9px}
+#cwf .kpi-grid{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:10px;margin-bottom:12px}
+#cwf .kpi{background:linear-gradient(180deg,#fff,var(--pale));border:1px solid var(--line);border-radius:15px;padding:13px}
+#cwf .kpi-label{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;font-weight:850}
+#cwf .kpi-value{font-size:27px;color:var(--navy);font-weight:900;margin-top:4px}
+#cwf .kpi-sub{font-size:10px;color:var(--muted);margin-top:3px}
+#cwf .grid-2{display:grid;grid-template-columns:1.2fr .8fr;gap:12px}
+#cwf .card{background:var(--white);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+#cwf .card-head{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+#cwf .card-title{font-size:13px;font-weight:900;color:var(--navy);display:flex;align-items:center;gap:8px}
+#cwf .card-body{padding:14px}
+#cwf .table-wrap{overflow:auto;-webkit-overflow-scrolling:touch}
+#cwf .table{width:100%;border-collapse:separate;border-spacing:0 6px;min-width:1050px}
+#cwf .table th{text-align:left;padding:0 9px 4px;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.7px}
+#cwf .table td{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:9px;font-size:11px;vertical-align:middle}
+#cwf .table td:first-child{border-left:1px solid var(--line);border-radius:11px 0 0 11px}
+#cwf .table td:last-child{border-right:1px solid var(--line);border-radius:0 11px 11px 0}
+#cwf .client-name{font-weight:850;color:var(--navy)}
+#cwf .sub{font-size:9px;color:var(--muted);margin-top:2px}
+#cwf .nowrap{white-space:nowrap}
+#cwf .badge,.cwf-scope .badge{display:inline-flex;align-items:center;padding:4px 7px;border-radius:999px;font-size:9px;font-weight:850;white-space:nowrap}
+#cwf .badge.gray,.cwf-scope .badge.gray{background:#E9EFF1;color:#53666B}
+#cwf .badge.green,.cwf-scope .badge.green{background:#DDF4E8;color:#176E49}
+#cwf .badge.red,.cwf-scope .badge.red{background:#FBE1E1;color:#8D2929}
+#cwf .badge.orange,.cwf-scope .badge.orange{background:#FBEAD8;color:#8A4F0D}
+#cwf .badge.blue,.cwf-scope .badge.blue{background:#DDECF5;color:#235F82}
+#cwf .badge.gold,.cwf-scope .badge.gold{background:#F6E9C8;color:#77530A}
+#cwf .progress{height:7px;background:#DDE7EA;border-radius:999px;overflow:hidden;min-width:105px}
+#cwf .progress>span{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:999px}
+#cwf .progress-text{font-size:9px;color:var(--muted);margin-top:3px}
+#cwf .filters{display:grid;grid-template-columns:2fr repeat(5,minmax(120px,1fr));gap:8px;margin-bottom:10px}
+#cwf .field,.cwf-scope .field{width:100%;border:1px solid var(--line);background:var(--cream);border-radius:11px;padding:9px 10px;color:var(--text);outline:none;font-size:11px}
+#cwf .field:focus,.cwf-scope .field:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(176,125,26,.12)}
+.cwf-scope .label{display:block;font-size:9px;font-weight:850;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin:8px 0 4px}
+.cwf-scope .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 12px}
+.cwf-scope .span-2{grid-column:span 2}
+.cwf-scope .check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:6px}
+.cwf-scope .check{display:flex;align-items:center;gap:7px;background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:8px;font-size:10px}
+.cwf-scope .check input{accent-color:var(--teal)}
+.cwf-scope .intro{font-size:11px;color:var(--muted);margin:4px 0 12px}
+.cwf-scope h3{margin:0;color:var(--navy)}
+#cwf .activity-list{display:grid;gap:7px}
+#cwf .activity{border:1px solid var(--line);background:var(--cream);border-radius:13px;padding:10px}
+#cwf .activity-top{display:flex;justify-content:space-between;gap:10px}
+#cwf .activity-title{font-size:11px;font-weight:850;color:var(--navy)}
+#cwf .activity-date{font-size:9px;color:var(--muted);white-space:nowrap}
+#cwf .activity-text{font-size:10px;color:var(--text);line-height:1.45;margin-top:4px}
+#cwf .activity-meta{font-size:9px;color:var(--muted);margin-top:4px}
+#cwf .alert-list{display:grid;gap:7px}
+#cwf .alert{border-radius:12px;padding:10px;border:1px solid var(--line);background:var(--cream);font-size:10px;line-height:1.4}
+#cwf .alert strong{color:var(--navy)}
+#cwf .alert.red{background:#FFF1F1;border-color:#F2CACA}
+#cwf .alert.orange{background:#FFF7EC;border-color:#F1D6AE}
+#cwf .report-controls{display:grid;grid-template-columns:repeat(5,minmax(130px,1fr));gap:8px;margin-bottom:12px}
+#cwf .report-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:12px}
+#cwf .report-card{border:1px solid var(--line);background:var(--cream);border-radius:13px;padding:11px}
+#cwf .report-card .n{font-size:24px;font-weight:900;color:var(--navy)}
+#cwf .report-card .t{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;font-weight:800}
+#cwf .privacy-note{font-size:11px;line-height:1.5;color:var(--muted);background:var(--cream);border:1px solid var(--line);padding:10px;border-radius:12px}
+#cwf .privacy-note strong{color:var(--navy)}
+#cwf .empty,.cwf-scope .empty{text-align:center;color:var(--muted);font-size:11px;padding:24px}
+@media(max-width:1180px){#cwf .kpi-grid{grid-template-columns:repeat(3,1fr)}#cwf .grid-2{grid-template-columns:1fr}#cwf .filters{grid-template-columns:repeat(3,1fr)}#cwf .filters>input:first-child{grid-column:span 3}#cwf .report-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){#cwf .kpi-grid,#cwf .report-grid{grid-template-columns:repeat(2,1fr)}#cwf .filters,#cwf .report-controls{grid-template-columns:1fr 1fr}#cwf .filters>input:first-child{grid-column:span 2}.cwf-scope .form-grid,.cwf-scope .check-grid{grid-template-columns:1fr}.cwf-scope .span-2{grid-column:span 1}}
+@media print{
+  body.cwf-print .header,body.cwf-print .sidebar,body.cwf-print .mob-nav,body.cwf-print .urgent-banner,body.cwf-print .inbox-banner{display:none!important}
+  body.cwf-print .sec:not([data-s="clientWorkflow"]){display:none!important}
+  body.cwf-print #cwf .cwf-tabs,body.cwf-print #cwf .section-head .actions,body.cwf-print #cwf .cwf-view:not(.active){display:none!important}
+  body.cwf-print #cwfWeekly{display:block!important}
+  body.cwf-print #cwf .card{box-shadow:none;border:1px solid #ccc}
+  body.cwf-print #cwf .table{min-width:0}
+}
 </style>
 </head>
 <body>
@@ -543,6 +633,73 @@ button,input,select,textarea{font:inherit}
           </div>
         </section>
 
+        <!-- CLIENT WORKFLOW (merged tracker) -->
+        <section class="sec" data-s="clientWorkflow">
+          <div id="cwf">
+            <div class="cwf-tabs" id="cwfTabs"></div>
+
+            <!-- Dashboard view -->
+            <div class="cwf-view active" id="cwfDashboard">
+              <div class="section-head">
+                <div><h2>Client Workflow</h2><p id="cwfTodayLabel"></p></div>
+                <div class="actions"><button class="btn" onclick="cwfOpenActivityModal()">Log Client Contact</button><button class="btn primary" onclick="cwfOpenClientModal()">Add Client</button></div>
+              </div>
+              <div class="kpi-grid" id="cwfKpis"></div>
+              <div class="grid-2">
+                <div class="card"><div class="card-head"><div class="card-title">&#128336; Today&rsquo;s Client Activity</div><button class="btn small" onclick="cwfSetView('daily')">View All</button></div><div class="card-body"><div id="cwfTodayActivity" class="activity-list"></div></div></div>
+                <div class="card"><div class="card-head"><div class="card-title">&#9888; Workflow Alerts</div></div><div class="card-body"><div id="cwfAlerts" class="alert-list"></div></div></div>
+              </div>
+              <div class="card" style="margin-top:12px"><div class="card-body"><div class="privacy-note"><strong>Privacy guardrail:</strong> Do not enter Social Security numbers, dates of birth, bank numbers, passwords, tax documents, or full IRS transcripts. Keep those items in TaxDome and TaxSlayer. Every update is automatically recorded under your portal name.</div></div></div>
+            </div>
+
+            <!-- Client Workflow list view -->
+            <div class="cwf-view" id="cwfClients">
+              <div class="section-head"><div><h2>Client Workflow</h2><p id="cwfScopeNote">See every return from intake through refund issuance.</p></div><div class="actions"><button class="btn" onclick="cwfExportClientsCsv()">Export CSV</button><button class="btn primary" onclick="cwfOpenClientModal()">Add Client</button></div></div>
+              <div class="card"><div class="card-body">
+                <div class="filters">
+                  <input class="field" id="cwfClientSearch" placeholder="Search client, ID, staff, notes" oninput="cwfRenderClients()">
+                  <select class="field" id="cwfOfficeFilter" onchange="cwfRenderClients()"><option value="">All Offices</option><option>Orlando</option><option>Clermont</option><option>Winter Haven</option></select>
+                  <select class="field" id="cwfStaffFilter" onchange="cwfRenderClients()"><option value="">All Staff</option></select>
+                  <select class="field" id="cwfYearFilter" onchange="cwfRenderClients()"><option value="">All Tax Years</option></select>
+                  <select class="field" id="cwfPrepFilter" onchange="cwfRenderClients()"><option value="">All Preparation Statuses</option></select>
+                  <select class="field" id="cwfIrsFilter" onchange="cwfRenderClients()"><option value="">All IRS Statuses</option></select>
+                </div>
+                <div class="table-wrap"><table class="table"><thead><tr><th>Client</th><th>Office / Staff</th><th>Preparation</th><th>IRS Status</th><th>Progress</th><th>Last Contact</th><th>Next Action</th><th>Follow-Up</th><th>Actions</th></tr></thead><tbody id="cwfClientRows"></tbody></table></div>
+              </div></div>
+            </div>
+
+            <!-- Daily contact log view -->
+            <div class="cwf-view" id="cwfDaily">
+              <div class="section-head"><div><h2>Daily Contact Log</h2><p>Record every client seen or contacted today.</p></div><div class="actions"><button class="btn primary" onclick="cwfOpenActivityModal()">Log Client Contact</button></div></div>
+              <div class="card"><div class="card-body">
+                <div class="filters" style="grid-template-columns:2fr repeat(3,minmax(140px,1fr))">
+                  <input class="field" id="cwfActivitySearch" placeholder="Search activity" oninput="cwfRenderDaily()">
+                  <input class="field" id="cwfActivityDate" type="date" onchange="cwfRenderDaily()">
+                  <select class="field" id="cwfActivityOffice" onchange="cwfRenderDaily()"><option value="">All Offices</option><option>Orlando</option><option>Clermont</option><option>Winter Haven</option></select>
+                  <select class="field" id="cwfActivityStaff" onchange="cwfRenderDaily()"><option value="">All Staff</option></select>
+                </div>
+                <div id="cwfDailyList" class="activity-list"></div>
+              </div></div>
+            </div>
+
+            <!-- Weekly report view -->
+            <div class="cwf-view" id="cwfWeekly">
+              <div class="section-head"><div><h2>Weekly Management Report</h2><p>Review activity, production, IRS results, follow-ups, and refunds.</p></div><div class="actions"><button class="btn" onclick="cwfExportWeeklyCsv()">Export CSV</button><button class="btn primary" onclick="cwfPrintWeekly()">Print or Save PDF</button></div></div>
+              <div class="card"><div class="card-body">
+                <div class="report-controls">
+                  <div><label class="label" style="display:block;font-size:9px;font-weight:850;color:var(--mu);text-transform:uppercase;letter-spacing:.7px;margin:0 0 4px">Week Starts</label><input class="field" id="cwfWeekStart" type="date" onchange="cwfRenderWeekly()"></div>
+                  <div><label class="label" style="display:block;font-size:9px;font-weight:850;color:var(--mu);text-transform:uppercase;letter-spacing:.7px;margin:0 0 4px">Week Ends</label><input class="field" id="cwfWeekEnd" type="date" onchange="cwfRenderWeekly()"></div>
+                  <div><label class="label" style="display:block;font-size:9px;font-weight:850;color:var(--mu);text-transform:uppercase;letter-spacing:.7px;margin:0 0 4px">Office</label><select class="field" id="cwfReportOffice" onchange="cwfRenderWeekly()"><option value="">All Offices</option><option>Orlando</option><option>Clermont</option><option>Winter Haven</option></select></div>
+                  <div><label class="label" style="display:block;font-size:9px;font-weight:850;color:var(--mu);text-transform:uppercase;letter-spacing:.7px;margin:0 0 4px">Assigned Staff</label><select class="field" id="cwfReportStaff" onchange="cwfRenderWeekly()"><option value="">All Staff</option></select></div>
+                  <div><label class="label" style="display:block;font-size:9px;font-weight:850;color:var(--mu);text-transform:uppercase;letter-spacing:.7px;margin:0 0 4px">Tax Year</label><select class="field" id="cwfReportYear" onchange="cwfRenderWeekly()"><option value="">All Tax Years</option></select></div>
+                </div>
+                <div class="report-grid" id="cwfWeeklyMetrics"></div>
+                <div class="card" style="box-shadow:none"><div class="card-head"><div class="card-title">Weekly Client Detail</div><div class="sub" id="cwfWeeklyRangeLabel"></div></div><div class="card-body"><div class="table-wrap"><table class="table"><thead><tr><th>Client</th><th>Staff</th><th>Preparation</th><th>IRS</th><th>Contacts This Week</th><th>Last Contact</th><th>Next Action</th><th>Follow-Up</th><th>Refund Date</th></tr></thead><tbody id="cwfWeeklyRows"></tbody></table></div></div></div>
+              </div></div>
+            </div>
+          </div>
+        </section>
+
       </main>
       <div style="text-align:center;padding:18px 12px 26px;color:var(--mu);font-size:11px;border-top:1px solid var(--ln);margin-top:8px">
         OGO Portal v6.2 &nbsp;&#183;&nbsp; Updated July 7, 2026 &nbsp;&#183;&nbsp; Beyond the Numbers, We're Here for You.
@@ -655,7 +812,8 @@ function makeDefault(){
     analytics:{monthlyReturns:[42,51,49,63,58,71],months:['Jan','Feb','Mar','Apr','May','Jun']},
     ptoOverrides:{},
     rosterSync:'',
-    removedSeeds:{events:[],employees:[]}
+    removedSeeds:{events:[],employees:[]},
+    clientWorkflow:{nextId:100000,clients:[],activities:[],audit:[]}
   };
 }
 
@@ -734,6 +892,12 @@ function fbMerge(remote){
   if(!S.tc.entries)S.tc.entries={};
   if(!S.tc.active)S.tc.active={};
   if(!S.inbox)S.inbox={};
+  /* ensure client workflow structure exists */
+  if(!S.clientWorkflow||typeof S.clientWorkflow!=='object')S.clientWorkflow=makeDefault().clientWorkflow;
+  if(!Array.isArray(S.clientWorkflow.clients))S.clientWorkflow.clients=[];
+  if(!Array.isArray(S.clientWorkflow.activities))S.clientWorkflow.activities=[];
+  if(!Array.isArray(S.clientWorkflow.audit))S.clientWorkflow.audit=[];
+  if(!S.clientWorkflow.nextId)S.clientWorkflow.nextId=100000;
   fbLock=false;
   renderAll();
 }
@@ -1014,12 +1178,14 @@ function setSection(k){
   if(k==='timeclock'){renderTC();updateGeoUI();}
   if(k==='photos')renderPhotos();
   if(k==='pto')renderPTO();
+  if(k==='clientWorkflow')cwfRender();
 }
-const SECTIONS=[{k:'dashboard',l:'\uD83C\uDFE0 Dashboard'},{k:'timeclock',l:'\u23F1 Time Clock'},{k:'directory',l:'\uD83D\uDC65 Directory'},{k:'events',l:'\uD83D\uDCC5 Events'},{k:'requests',l:'\uD83D\uDCDD Requests'},{k:'clients',l:'\uD83E\uDDD1 Clients'},{k:'analytics',l:'\uD83D\uDCCA Analytics'},{k:'resources',l:'\uD83D\uDCCE Resources'},{k:'photos',l:'\uD83D\uDCF7 Photos'},{k:'offices',l:'\uD83C\uDFE2 Offices'},{k:'pto',l:'&#127965; PTO Tracker'},{k:'activity',l:'\uD83D\uDD53 Activity'}];
+const SECTIONS=[{k:'dashboard',l:'\uD83C\uDFE0 Dashboard'},{k:'timeclock',l:'\u23F1 Time Clock'},{k:'directory',l:'\uD83D\uDC65 Directory'},{k:'events',l:'\uD83D\uDCC5 Events'},{k:'requests',l:'\uD83D\uDCDD Requests'},{k:'clients',l:'\uD83E\uDDD1 Clients'},{k:'clientWorkflow',l:'\uD83D\uDDC2\uFE0F Client Workflow'},{k:'analytics',l:'\uD83D\uDCCA Analytics'},{k:'resources',l:'\uD83D\uDCCE Resources'},{k:'photos',l:'\uD83D\uDCF7 Photos'},{k:'offices',l:'\uD83C\uDFE2 Offices'},{k:'pto',l:'&#127965; PTO Tracker'},{k:'activity',l:'\uD83D\uDD53 Activity'}];
 function renderNav(){
   const pending=(S.requests||[]).filter(function(r){return r.status==='Pending'&&vo(r);}).length;
   const urg=(S.urgentAlerts||[]).filter(function(a){return!a.dismissed&&(a.office==='All'||S.activeOffice==='All'||a.office===S.activeOffice);}).length;
-  function badge(k){if(k==='requests'&&pending)return'<span class="nbadge">'+pending+'</span>';if(k==='dashboard'&&urg)return'<span class="nbadge" style="background:var(--orange)">'+urg+'</span>';return'';}
+  const cwfFlags=cwfNavCount();
+  function badge(k){if(k==='requests'&&pending)return'<span class="nbadge">'+pending+'</span>';if(k==='dashboard'&&urg)return'<span class="nbadge" style="background:var(--orange)">'+urg+'</span>';if(k==='clientWorkflow'&&cwfFlags)return'<span class="nbadge">'+cwfFlags+'</span>';return'';}
   const sn=document.getElementById('sectionNav');if(sn)sn.innerHTML=SECTIONS.map(function(s){return'<button class="navbtn'+(S.activeSection===s.k?' active':'')+'" onclick="setSection(\''+s.k+'\')">'+s.l+badge(s.k)+'</button>';}).join('');
   const mn=document.getElementById('mobileNav');const mKeys=['dashboard','timeclock','requests','photos','offices'];if(mn)mn.innerHTML=SECTIONS.filter(function(s){return mKeys.includes(s.k);}).map(function(s){return'<button class="navbtn'+(S.activeSection===s.k?' active':'')+'" onclick="setSection(\''+s.k+'\')">'+s.l+'</button>';}).join('');
   const ot=document.getElementById('officeTabs');if(ot)ot.innerHTML=['All','Orlando','Clermont','Winter Haven'].map(function(o){return'<button class="pill'+(S.activeOffice===o?' on':'')+'" onclick="setOffice(\''+o+'\')">'+(o==='All'?'All Offices':o)+'</button>';}).join('');
@@ -1195,6 +1361,7 @@ function renderAll(){
   renderDash();renderDirectory();renderEventsTable();renderRequests();renderClients();renderAnalytics();renderResources();renderOffices();renderActivity();if(S.activeSection==='pto')renderPTO();
   if(S.activeSection==='timeclock')renderTC();
   if(S.activeSection==='photos')renderPhotos();
+  if(S.activeSection==='clientWorkflow')cwfRender();
 }
 
 /* ── DASHBOARD ── */
@@ -1434,6 +1601,206 @@ function startClock(){
   }
   tick();setInterval(tick,1000);
 }
+
+/* ═══════════════════════════════════════════════════════════
+   CLIENT WORKFLOW MODULE (merged tracker)
+   - No separate login: uses the portal's signed-in user (CU)
+   - Managers/Admins see every client; staff see only clients
+     assigned to them (assignedTo or reviewer)
+   - Every add/update is stamped with the portal user's name
+   - Staff & office lists come from the portal roster (S.employees)
+   - Data lives in S.clientWorkflow and syncs on the portal's path
+   ═══════════════════════════════════════════════════════════ */
+const CWF_PREP_STATUSES=['New Client / Not Started','Intake in Progress','Missing Information','All Information Received','Entered into TaxSlayer','Under Preparer Review','Numbers Reviewed and Approved','Client Update Sent','Waiting for Client Authorization','Client Authorization Received','Ready to E-File','E-Filed','Paper Return Required','Return Completed - Balance Due','Closed or Archived'];
+const CWF_IRS_STATUSES=['Not Submitted','Submitted to IRS','IRS Accepted','IRS Rejected','Correction in Progress','Resubmitted to IRS','Pending IRS Processing','Additional IRS Action Required','Refund Approved','Refund Issued','Refund Held or Delayed','Refund Applied to Debt','Balance Due - No Refund','Paper Return Mailed','Return Closed'];
+const CWF_RETURN_TYPES=['Individual','Business','Amended Return','Prior-Year Return','ITIN Return','Extension'];
+const CWF_CONTACT_METHODS=['In Person','Telephone','Email','Text Message','TaxDome','Virtual Appointment'];
+let cwfView='dashboard';
+
+function cwfData(){if(!S.clientWorkflow||typeof S.clientWorkflow!=='object')S.clientWorkflow={nextId:100000,clients:[],activities:[],audit:[]};const d=S.clientWorkflow;if(!Array.isArray(d.clients))d.clients=[];if(!Array.isArray(d.activities))d.activities=[];if(!Array.isArray(d.audit))d.audit=[];if(!d.nextId)d.nextId=100000;return d;}
+function cwfActor(){return CU?CU.name:'OGO Staff';}
+function cwfCanSeeAll(){return !!(CU&&(CU.role==='Admin'||CU.role==='Manager'||S.adminMode));}
+function cwfOffices(){const k=Object.keys(S.offices||{});return k.length?k:['Orlando','Clermont','Winter Haven'];}
+function cwfMyOffice(){return CU&&CU.office&&CU.office!=='All'?CU.office:cwfOffices()[0];}
+function cwfVisibleClients(){const all=cwfData().clients;if(cwfCanSeeAll())return all.slice();const me=cwfActor();return all.filter(c=>c.assignedTo===me||c.reviewer===me);}
+function cwfVisibleIds(){return new Set(cwfVisibleClients().map(c=>c.id));}
+function cwfVisibleActivities(){if(cwfCanSeeAll())return cwfData().activities.slice();const ids=cwfVisibleIds(),me=cwfActor();return cwfData().activities.filter(a=>ids.has(a.clientRecordId)||a.staff===me||a.createdBy===me);}
+function cwfStaffNames(){const roster=(S.employees||[]).filter(e=>e.status!=='Inactive').map(e=>e.name);const d=cwfData();const extra=[...d.clients.map(c=>c.assignedTo),...d.clients.map(c=>c.reviewer),...d.activities.map(a=>a.staff),cwfActor()];return[...new Set([...roster,...extra].filter(Boolean))].sort();}
+
+function cwfVal(id){const e=document.getElementById(id);return e?e.value:'';}
+function cwfChk(id){const e=document.getElementById(id);return !!(e&&e.checked);}
+function cwfLocalDate(d){const x=d?new Date(d):new Date();return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');}
+function cwfAddDays(date,days){const d=new Date(date+'T12:00:00');d.setDate(d.getDate()+days);return cwfLocalDate(d);}
+function cwfFmtDate(date){if(!date)return'None';return new Date(date+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});}
+function cwfFmtDateTime(ts){if(!ts)return'';return new Date(ts).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});}
+function cwfGetMonday(date){const d=new Date(date+'T12:00:00');const day=d.getDay()||7;d.setDate(d.getDate()-day+1);return cwfLocalDate(d);}
+function cwfBadgeClass(s){if(!s)return'gray';if(/Rejected|Held|Missing|Action Required|Correction/.test(s))return'red';if(/Issued|Accepted|Approved|Closed|Complete/.test(s))return'green';if(/Pending|Waiting|Review|Submitted|E-Filed|Mailed/.test(s))return'orange';if(/TaxSlayer|Received|Ready/.test(s))return'blue';return'gray';}
+function cwfProgress(c){const steps=[c.docsComplete,c.taxSlayerEntered,c.numbersReviewed,c.clientUpdateSent,c.consentReceived,!!c.submittedDate,['IRS Accepted','IRS Rejected','Correction in Progress','Resubmitted to IRS','Pending IRS Processing','Additional IRS Action Required','Refund Approved','Refund Issued','Refund Held or Delayed','Refund Applied to Debt','Balance Due - No Refund','Return Closed'].includes(c.irsStatus),['Pending IRS Processing','Refund Approved','Refund Issued','Refund Held or Delayed','Refund Applied to Debt','Return Closed'].includes(c.irsStatus),c.irsStatus==='Refund Issued'];return Math.round(steps.filter(Boolean).length/steps.length*100);}
+function cwfIsOverdue(c){return c.followUpDate&&c.followUpDate<cwfLocalDate()&&!['Refund Issued','Return Closed'].includes(c.irsStatus)&&c.prepStatus!=='Closed or Archived';}
+function cwfNavCount(){try{return cwfVisibleClients().filter(c=>cwfIsOverdue(c)||c.irsStatus==='IRS Rejected').length;}catch(e){return 0;}}
+
+function cwfModal(html){const box=document.getElementById('modalBox');if(!box)return;box.innerHTML='<div class="cwf-scope">'+html+'</div>';document.getElementById('modalOverlay').classList.add('open');}
+function cwfAudit(action,client){const d=cwfData();d.audit.unshift({id:d.nextId++,action,clientId:client?client.id:'',clientName:client?client.name:'',actor:cwfActor(),ts:Date.now()});d.audit=d.audit.slice(0,500);}
+function cwfSave(){fbSave();cwfRender();renderNav();}
+
+const CWF_TABS=[['dashboard','🏠','Overview'],['clients','👥','Client Workflow'],['daily','☎','Daily Log'],['weekly','📊','Weekly Report']];
+function cwfBuildTabs(){const el=document.getElementById('cwfTabs');if(el)el.innerHTML=CWF_TABS.map(function(t){return'<button class="cwf-tab'+(t[0]===cwfView?' active':'')+'" onclick="cwfSetView(\''+t[0]+'\')">'+t[1]+' '+t[2]+'</button>';}).join('');}
+function cwfSetView(k){cwfView=k;cwfRender();}
+function cwfCap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+function cwfRender(){
+  if(!document.getElementById('cwf'))return;
+  cwfBuildTabs();
+  const tl=document.getElementById('cwfTodayLabel');if(tl)tl.textContent=new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'})+(cwfCanSeeAll()?' · Viewing all clients':' · Viewing your assigned clients');
+  const sn=document.getElementById('cwfScopeNote');if(sn)sn.textContent=cwfCanSeeAll()?'See every return from intake through refund issuance.':'You are seeing the clients assigned to you. Managers can view every client.';
+  cwfPopulateFilters();cwfSetWeekDefaults();
+  const ad=document.getElementById('cwfActivityDate');if(ad&&!ad.value)ad.value=cwfLocalDate();
+  document.querySelectorAll('#cwf .cwf-view').forEach(function(v){v.classList.toggle('active',v.id==='cwf'+cwfCap(cwfView));});
+  if(cwfView==='dashboard')cwfRenderDashboard();
+  else if(cwfView==='clients')cwfRenderClients();
+  else if(cwfView==='daily')cwfRenderDaily();
+  else if(cwfView==='weekly')cwfRenderWeekly();
+}
+function cwfPopulateFilters(){
+  const staff=cwfStaffNames();
+  ['cwfStaffFilter','cwfActivityStaff','cwfReportStaff'].forEach(function(id){const e=document.getElementById(id);if(!e)return;const cur=e.value;e.innerHTML='<option value="">All Staff</option>'+staff.map(function(x){return'<option '+(x===cur?'selected':'')+'>'+esc(x)+'</option>';}).join('');});
+  const years=[...new Set(cwfData().clients.map(function(c){return c.taxYear;}).filter(Boolean))].sort(function(a,b){return b-a;});const defY=String(new Date().getFullYear()-1);if(!years.includes(defY))years.unshift(defY);
+  ['cwfYearFilter','cwfReportYear'].forEach(function(id){const e=document.getElementById(id);if(!e)return;const cur=e.value;e.innerHTML='<option value="">All Tax Years</option>'+years.map(function(x){return'<option '+(x===cur?'selected':'')+'>'+esc(x)+'</option>';}).join('');});
+  const pf=document.getElementById('cwfPrepFilter');if(pf&&pf.options.length<3)pf.innerHTML='<option value="">All Preparation Statuses</option>'+CWF_PREP_STATUSES.map(function(x){return'<option>'+esc(x)+'</option>';}).join('');
+  const ir=document.getElementById('cwfIrsFilter');if(ir&&ir.options.length<3)ir.innerHTML='<option value="">All IRS Statuses</option>'+CWF_IRS_STATUSES.map(function(x){return'<option>'+esc(x)+'</option>';}).join('');
+}
+function cwfActivityHtml(a){return'<div class="activity"><div class="activity-top"><div class="activity-title">'+esc(a.clientName)+' | '+esc(a.method)+'</div><div class="activity-date">'+cwfFmtDateTime(a.ts)+'</div></div><div class="activity-text">'+esc(a.summary)+'</div><div class="activity-meta">'+esc(a.staff)+' | '+esc(a.office)+(a.nextAction?' | Next: '+esc(a.nextAction):'')+(a.followUpDate?' | Follow-up: '+cwfFmtDate(a.followUpDate):'')+'</div></div>';}
+function cwfRenderDashboard(){
+  const today=cwfLocalDate(),weekStart=cwfGetMonday(today),weekEnd=cwfAddDays(weekStart,6);
+  const clients=cwfVisibleClients(),acts=cwfVisibleActivities();
+  const s={
+    seenToday:acts.filter(function(a){return a.date===today;}).length,
+    active:clients.filter(function(c){return c.prepStatus!=='Closed or Archived'&&c.irsStatus!=='Return Closed';}).length,
+    ready:clients.filter(function(c){return c.prepStatus==='Ready to E-File'||(c.numbersReviewed&&c.consentReceived&&!c.submittedDate);}).length,
+    rejected:clients.filter(function(c){return c.irsStatus==='IRS Rejected'||c.irsStatus==='Correction in Progress';}).length,
+    refunds:clients.filter(function(c){return c.refundDate&&c.refundDate>=weekStart&&c.refundDate<=weekEnd;}).length
+  };
+  const kpi=[['Clients Seen Today',s.seenToday,'Daily contacts'],['Active Client Files',s.active,'Open workflow'],['Ready to E-File',s.ready,'Needs submission'],['Rejected Returns',s.rejected,'Needs correction'],['Refunds This Week',s.refunds,'Issued dates recorded']];
+  document.getElementById('cwfKpis').innerHTML=kpi.map(function(x){return'<div class="kpi"><div class="kpi-label">'+x[0]+'</div><div class="kpi-value">'+x[1]+'</div><div class="kpi-sub">'+x[2]+'</div></div>';}).join('');
+  const todays=acts.filter(function(a){return a.date===today;}).sort(function(a,b){return b.ts-a.ts;}).slice(0,8);
+  document.getElementById('cwfTodayActivity').innerHTML=todays.length?todays.map(cwfActivityHtml).join(''):'<div class="empty">No client contacts logged today.</div>';
+  const alerts=[];clients.forEach(function(c){if(cwfIsOverdue(c))alerts.push({type:'red',text:c.name+': follow-up was due '+cwfFmtDate(c.followUpDate)+'.'});if(c.irsStatus==='IRS Rejected')alerts.push({type:'red',text:c.name+': rejected return needs correction'+(c.rejectionCode?' ('+c.rejectionCode+')':'')+'.'});if(c.numbersReviewed&&!c.consentReceived&&!c.submittedDate)alerts.push({type:'orange',text:c.name+': numbers reviewed, waiting for client authorization.'});if(c.prepStatus==='Entered into TaxSlayer'&&!c.numbersReviewed)alerts.push({type:'orange',text:c.name+': entered in TaxSlayer, waiting for review.'});});
+  document.getElementById('cwfAlerts').innerHTML=alerts.length?alerts.slice(0,12).map(function(a){return'<div class="alert '+a.type+'"><strong>Action:</strong> '+esc(a.text)+'</div>';}).join(''):'<div class="empty">No urgent workflow alerts.</div>';
+}
+function cwfFilteredClients(){
+  const q=cwfVal('cwfClientSearch').toLowerCase().trim(),office=cwfVal('cwfOfficeFilter'),staff=cwfVal('cwfStaffFilter'),year=cwfVal('cwfYearFilter'),prep=cwfVal('cwfPrepFilter'),irs=cwfVal('cwfIrsFilter');
+  return cwfVisibleClients().filter(function(c){return(!q||[c.name,c.clientId,c.assignedTo,c.reviewer,c.notes,c.nextAction].join(' ').toLowerCase().includes(q))&&(!office||c.office===office)&&(!staff||c.assignedTo===staff)&&(!year||c.taxYear===year)&&(!prep||c.prepStatus===prep)&&(!irs||c.irsStatus===irs);}).sort(function(a,b){return String(a.followUpDate||'9999').localeCompare(String(b.followUpDate||'9999'))||a.name.localeCompare(b.name);});
+}
+function cwfRenderClients(){
+  const rows=cwfFilteredClients();
+  document.getElementById('cwfClientRows').innerHTML=rows.length?rows.map(function(c){const p=cwfProgress(c);return'<tr>'+
+    '<td><div class="client-name">'+esc(c.name)+'</div><div class="sub">'+esc(c.clientId||'No internal ID')+' | '+esc(c.taxYear)+' '+esc(c.returnType)+'</div></td>'+
+    '<td><div>'+esc(c.office)+'</div><div class="sub">Assigned: '+esc(c.assignedTo||'Unassigned')+'<br>Reviewer: '+esc(c.reviewer||'Not assigned')+'</div></td>'+
+    '<td><span class="badge '+cwfBadgeClass(c.prepStatus)+'">'+esc(c.prepStatus)+'</span></td>'+
+    '<td><span class="badge '+cwfBadgeClass(c.irsStatus)+'">'+esc(c.irsStatus)+'</span>'+(c.rejectionCode?'<div class="sub">Code: '+esc(c.rejectionCode)+'</div>':'')+'</td>'+
+    '<td><div class="progress"><span style="width:'+p+'%"></span></div><div class="progress-text">'+p+'% complete</div></td>'+
+    '<td class="nowrap">'+cwfFmtDate(c.lastContactDate)+'</td>'+
+    '<td>'+esc(c.nextAction||'None entered')+'</td>'+
+    '<td class="nowrap">'+(c.followUpDate?'<span class="badge '+(cwfIsOverdue(c)?'red':'gold')+'">'+cwfFmtDate(c.followUpDate)+'</span>':'None')+'</td>'+
+    '<td class="nowrap"><button class="btn small" onclick="cwfOpenActivityModal('+c.id+')">Contact</button> <button class="btn small" onclick="cwfOpenClientModal('+c.id+')">Update</button></td>'+
+  '</tr>';}).join(''):'<tr><td colspan="9"><div class="empty">No clients match these filters.</div></td></tr>';
+}
+function cwfRenderDaily(){
+  const q=cwfVal('cwfActivitySearch').toLowerCase().trim(),date=cwfVal('cwfActivityDate'),office=cwfVal('cwfActivityOffice'),staff=cwfVal('cwfActivityStaff');
+  const arr=cwfVisibleActivities().filter(function(a){return(!q||[a.clientName,a.staff,a.summary,a.nextAction,a.method].join(' ').toLowerCase().includes(q))&&(!date||a.date===date)&&(!office||a.office===office)&&(!staff||a.staff===staff);}).sort(function(a,b){return b.ts-a.ts;});
+  document.getElementById('cwfDailyList').innerHTML=arr.length?arr.map(cwfActivityHtml).join(''):'<div class="empty">No contacts found for this date and filter.</div>';
+}
+function cwfSetWeekDefaults(){const ws=document.getElementById('cwfWeekStart'),we=document.getElementById('cwfWeekEnd');if(ws&&!ws.value){ws.value=cwfGetMonday(cwfLocalDate());we.value=cwfAddDays(ws.value,6);}}
+function cwfWeeklyClients(){const office=cwfVal('cwfReportOffice'),staff=cwfVal('cwfReportStaff'),year=cwfVal('cwfReportYear');return cwfVisibleClients().filter(function(c){return(!office||c.office===office)&&(!staff||c.assignedTo===staff)&&(!year||c.taxYear===year);});}
+function cwfRenderWeekly(){
+  const start=cwfVal('cwfWeekStart')||cwfGetMonday(cwfLocalDate()),end=cwfVal('cwfWeekEnd')||cwfAddDays(start,6),clients=cwfWeeklyClients(),ids=new Set(clients.map(function(c){return c.id;}));
+  const activities=cwfVisibleActivities().filter(function(a){return a.date>=start&&a.date<=end&&ids.has(a.clientRecordId);});
+  const contactsBy={};activities.forEach(function(a){contactsBy[a.clientRecordId]=(contactsBy[a.clientRecordId]||0)+1;});
+  const metrics=[
+    ['Client Contacts',activities.length],['Clients Touched',new Set(activities.map(function(a){return a.clientRecordId;})).size],['All Info Received',clients.filter(function(c){return c.docsComplete;}).length],['Entered in TaxSlayer',clients.filter(function(c){return c.taxSlayerEntered;}).length],
+    ['Numbers Reviewed',clients.filter(function(c){return c.numbersReviewed;}).length],['Client Updates Sent',clients.filter(function(c){return c.clientUpdateSent;}).length],['Awaiting Authorization',clients.filter(function(c){return c.numbersReviewed&&!c.consentReceived&&!c.submittedDate;}).length],['E-Filed',clients.filter(function(c){return c.submittedDate&&c.submittedDate>=start&&c.submittedDate<=end;}).length],
+    ['IRS Accepted',clients.filter(function(c){return c.acceptedDate&&c.acceptedDate>=start&&c.acceptedDate<=end;}).length],['IRS Rejected',clients.filter(function(c){return c.rejectedDate&&c.rejectedDate>=start&&c.rejectedDate<=end;}).length],['Pending with IRS',clients.filter(function(c){return c.irsStatus==='Pending IRS Processing';}).length],['Refunds Issued',clients.filter(function(c){return c.refundDate&&c.refundDate>=start&&c.refundDate<=end;}).length]
+  ];
+  document.getElementById('cwfWeeklyMetrics').innerHTML=metrics.map(function(m){return'<div class="report-card"><div class="n">'+m[1]+'</div><div class="t">'+m[0]+'</div></div>';}).join('');
+  document.getElementById('cwfWeeklyRangeLabel').textContent=cwfFmtDate(start)+' through '+cwfFmtDate(end);
+  document.getElementById('cwfWeeklyRows').innerHTML=clients.length?clients.slice().sort(function(a,b){return a.name.localeCompare(b.name);}).map(function(c){return'<tr><td><div class="client-name">'+esc(c.name)+'</div><div class="sub">'+esc(c.clientId)+' | '+esc(c.taxYear)+'</div></td><td>'+esc(c.assignedTo||'Unassigned')+'</td><td><span class="badge '+cwfBadgeClass(c.prepStatus)+'">'+esc(c.prepStatus)+'</span></td><td><span class="badge '+cwfBadgeClass(c.irsStatus)+'">'+esc(c.irsStatus)+'</span></td><td>'+(contactsBy[c.id]||0)+'</td><td>'+cwfFmtDate(c.lastContactDate)+'</td><td>'+esc(c.nextAction||'None')+'</td><td>'+(c.followUpDate?cwfFmtDate(c.followUpDate):'None')+'</td><td>'+(c.refundDate?cwfFmtDate(c.refundDate):'Not issued')+'</td></tr>';}).join(''):'<tr><td colspan="9"><div class="empty">No clients match this report filter.</div></td></tr>';
+}
+
+function cwfOptList(arr,cur){return arr.map(function(x){return'<option '+(x===cur?'selected':'')+'>'+esc(x)+'</option>';}).join('');}
+function cwfOpenClientModal(id){
+  const c=id?cwfData().clients.find(function(x){return x.id===id;}):null;
+  if(id&&!c){toast('Client not found.');return;}
+  if(c&&!cwfCanSeeAll()&&c.assignedTo!==cwfActor()&&c.reviewer!==cwfActor()){toast('You can only edit clients assigned to you.');return;}
+  const d=c||{clientId:'',name:'',taxYear:String(new Date().getFullYear()-1),returnType:'Individual',office:cwfMyOffice(),assignedTo:cwfActor(),reviewer:'',prepStatus:'New Client / Not Started',irsStatus:'Not Submitted',docsComplete:false,taxSlayerEntered:false,numbersReviewed:false,clientUpdateSent:false,communicationMethod:'',consentReceived:false,submittedDate:'',acceptedDate:'',rejectedDate:'',rejectionCode:'',pendingDate:'',refundDate:'',lastContactDate:'',nextAction:'',followUpDate:'',notes:''};
+  const chk=[['cwf-docsComplete','All information received',d.docsComplete],['cwf-taxSlayerEntered','Entered into TaxSlayer',d.taxSlayerEntered],['cwf-numbersReviewed','Numbers reviewed and approved',d.numbersReviewed],['cwf-clientUpdateSent','Client update sent',d.clientUpdateSent],['cwf-consentReceived','Client authorization received',d.consentReceived]];
+  cwfModal('<h3>'+(c?'Update':'Add')+' Client Workflow</h3><p class="intro">Track workflow only. Keep tax documents and sensitive identifiers in TaxDome and TaxSlayer. This update will be recorded under <strong>'+esc(cwfActor())+'</strong>.</p>'+
+  '<input type="hidden" id="cwf-id" value="'+(c?c.id:'')+'"><div class="form-grid">'+
+  '<div><label class="label">Internal Client ID</label><input class="field" id="cwf-clientId" value="'+esc(d.clientId)+'" placeholder="OGO-26001"></div>'+
+  '<div><label class="label">Client Name</label><input class="field" id="cwf-name" value="'+esc(d.name)+'" placeholder="Client or business name"></div>'+
+  '<div><label class="label">Tax Year</label><input class="field" id="cwf-taxYear" value="'+esc(d.taxYear)+'"></div>'+
+  '<div><label class="label">Return Type</label><select class="field" id="cwf-returnType">'+cwfOptList(CWF_RETURN_TYPES,d.returnType)+'</select></div>'+
+  '<div><label class="label">Office</label><select class="field" id="cwf-office">'+cwfOptList(cwfOffices(),d.office)+'</select></div>'+
+  '<div><label class="label">Assigned Staff</label><input class="field" id="cwf-assignedTo" value="'+esc(d.assignedTo)+'" list="cwfStaffList"></div>'+
+  '<div><label class="label">Reviewer</label><input class="field" id="cwf-reviewer" value="'+esc(d.reviewer)+'" list="cwfStaffList"></div>'+
+  '<div><label class="label">Last Contact Date</label><input class="field" id="cwf-lastContactDate" type="date" value="'+esc(d.lastContactDate)+'"></div>'+
+  '<div><label class="label">Preparation Status</label><select class="field" id="cwf-prepStatus">'+cwfOptList(CWF_PREP_STATUSES,d.prepStatus)+'</select></div>'+
+  '<div><label class="label">IRS Status</label><select class="field" id="cwf-irsStatus">'+cwfOptList(CWF_IRS_STATUSES,d.irsStatus)+'</select></div>'+
+  '<div><label class="label">Last Communication Method</label><select class="field" id="cwf-communicationMethod"><option value="">Not recorded</option>'+cwfOptList(CWF_CONTACT_METHODS,d.communicationMethod)+'</select></div>'+
+  '<div><label class="label">Next Follow-Up Date</label><input class="field" id="cwf-followUpDate" type="date" value="'+esc(d.followUpDate)+'"></div>'+
+  '<div class="span-2"><label class="label">Workflow Checklist</label><div class="check-grid">'+chk.map(function(x){return'<label class="check"><input id="'+x[0]+'" type="checkbox" '+(x[2]?'checked':'')+'> '+x[1]+'</label>';}).join('')+'</div></div>'+
+  '<div><label class="label">IRS Submission Date</label><input class="field" id="cwf-submittedDate" type="date" value="'+esc(d.submittedDate)+'"></div>'+
+  '<div><label class="label">IRS Acceptance Date</label><input class="field" id="cwf-acceptedDate" type="date" value="'+esc(d.acceptedDate)+'"></div>'+
+  '<div><label class="label">IRS Rejection Date</label><input class="field" id="cwf-rejectedDate" type="date" value="'+esc(d.rejectedDate)+'"></div>'+
+  '<div><label class="label">IRS Rejection Code</label><input class="field" id="cwf-rejectionCode" value="'+esc(d.rejectionCode)+'"></div>'+
+  '<div><label class="label">IRS Pending Date</label><input class="field" id="cwf-pendingDate" type="date" value="'+esc(d.pendingDate)+'"></div>'+
+  '<div><label class="label">Refund Issued Date</label><input class="field" id="cwf-refundDate" type="date" value="'+esc(d.refundDate)+'"></div>'+
+  '<div class="span-2"><label class="label">Next Action</label><input class="field" id="cwf-nextAction" value="'+esc(d.nextAction)+'" placeholder="What happens next and who owns it?"></div>'+
+  '<div class="span-2"><label class="label">Internal Notes</label><textarea class="field" id="cwf-notes" rows="3" placeholder="No SSN, DOB, bank data, passwords, or tax document details">'+esc(d.notes)+'</textarea></div>'+
+  '</div><datalist id="cwfStaffList">'+cwfStaffNames().map(function(x){return'<option value="'+esc(x)+'">';}).join('')+'</datalist>'+
+  '<div class="modal-actions">'+(c?'<button class="btn danger" onclick="cwfArchiveClient('+c.id+')">Archive</button>':'')+'<button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="cwfSaveClient()">Save Client</button></div>');
+}
+function cwfSaveClient(){
+  const id=Number(cwfVal('cwf-id'))||null,name=cwfVal('cwf-name').trim(),clientId=cwfVal('cwf-clientId').trim();if(!name){toast('Enter the client name.');return;}
+  const existing=id?cwfData().clients.find(function(x){return x.id===id;}):null;const now=Date.now();
+  const c={id:existing?existing.id:cwfData().nextId++,clientId,name,taxYear:cwfVal('cwf-taxYear').trim(),returnType:cwfVal('cwf-returnType'),office:cwfVal('cwf-office'),assignedTo:cwfVal('cwf-assignedTo').trim(),reviewer:cwfVal('cwf-reviewer').trim(),prepStatus:cwfVal('cwf-prepStatus'),irsStatus:cwfVal('cwf-irsStatus'),docsComplete:cwfChk('cwf-docsComplete'),taxSlayerEntered:cwfChk('cwf-taxSlayerEntered'),numbersReviewed:cwfChk('cwf-numbersReviewed'),clientUpdateSent:cwfChk('cwf-clientUpdateSent'),communicationMethod:cwfVal('cwf-communicationMethod'),consentReceived:cwfChk('cwf-consentReceived'),submittedDate:cwfVal('cwf-submittedDate'),acceptedDate:cwfVal('cwf-acceptedDate'),rejectedDate:cwfVal('cwf-rejectedDate'),rejectionCode:cwfVal('cwf-rejectionCode').trim(),pendingDate:cwfVal('cwf-pendingDate'),refundDate:cwfVal('cwf-refundDate'),lastContactDate:cwfVal('cwf-lastContactDate'),nextAction:cwfVal('cwf-nextAction').trim(),followUpDate:cwfVal('cwf-followUpDate'),notes:cwfVal('cwf-notes').trim(),createdAt:existing?existing.createdAt:now,updatedAt:now,updatedBy:cwfActor()};
+  if(c.irsStatus==='Refund Issued'&&!c.refundDate){toast('Enter the refund issued date.');return;}
+  if(c.irsStatus==='IRS Rejected'&&!c.rejectionCode){toast('Enter the IRS rejection code.');return;}
+  if(c.submittedDate&&!c.consentReceived){toast('Record client authorization before marking the return submitted.');return;}
+  const d=cwfData();if(existing)d.clients[d.clients.indexOf(existing)]=c;else d.clients.push(c);
+  cwfAudit(existing?'Updated client workflow':'Added client workflow',c);addLog((existing?'Updated':'Added')+' client workflow: '+c.name,c.office,cwfActor());
+  cwfSave();closeModal();toast(existing?'Client workflow updated.':'Client added.');
+}
+function cwfArchiveClient(id){const c=cwfData().clients.find(function(x){return x.id===id;});if(!c)return;if(!confirm('Archive '+c.name+'? The record will remain in reports and history.'))return;c.prepStatus='Closed or Archived';c.updatedAt=Date.now();c.updatedBy=cwfActor();cwfAudit('Archived client workflow',c);addLog('Archived client workflow: '+c.name,c.office,cwfActor());cwfSave();closeModal();toast('Client archived.');}
+function cwfOpenActivityModal(clientId){
+  const list=cwfVisibleClients().filter(function(x){return x.prepStatus!=='Closed or Archived';}).sort(function(a,b){return a.name.localeCompare(b.name);});
+  if(!list.length){toast('Add a client first.');return;}
+  const c=clientId?cwfData().clients.find(function(x){return x.id===clientId;}):null;
+  cwfModal('<h3>Log Client Contact</h3><p class="intro">Recorded as <strong>'+esc(cwfActor())+'</strong>. Note who was seen or contacted and what must happen next.</p><div class="form-grid">'+
+  '<div class="span-2"><label class="label">Client</label><select class="field" id="cwfa-client">'+list.map(function(x){return'<option value="'+x.id+'" '+(c&&x.id===c.id?'selected':'')+'>'+esc(x.name)+' | '+esc(x.clientId||'No ID')+'</option>';}).join('')+'</select></div>'+
+  '<div><label class="label">Contact Date</label><input class="field" id="cwfa-date" type="date" value="'+cwfLocalDate()+'"></div>'+
+  '<div><label class="label">Method</label><select class="field" id="cwfa-method">'+cwfOptList(CWF_CONTACT_METHODS,'In Person')+'</select></div>'+
+  '<div><label class="label">Staff Member</label><input class="field" id="cwfa-staff" value="'+esc(cwfActor())+'" readonly></div>'+
+  '<div><label class="label">Office</label><select class="field" id="cwfa-office">'+cwfOptList(cwfOffices(),(c&&c.office)||cwfMyOffice())+'</select></div>'+
+  '<div class="span-2"><label class="label">What Was Completed or Communicated?</label><textarea class="field" id="cwfa-summary" rows="4"></textarea></div>'+
+  '<div class="span-2"><label class="label">Next Action</label><input class="field" id="cwfa-nextAction" value="'+esc((c&&c.nextAction)||'')+'"></div>'+
+  '<div><label class="label">Follow-Up Date</label><input class="field" id="cwfa-followUpDate" type="date" value="'+esc((c&&c.followUpDate)||'')+'"></div>'+
+  '<div><label class="label">Update Client’s Last Method</label><select class="field" id="cwfa-updateMethod"><option value="yes">Yes</option><option value="no">No</option></select></div>'+
+  '</div><div class="modal-actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="cwfSaveActivity()">Save Contact</button></div>');
+}
+function cwfSaveActivity(){
+  const clientId=Number(cwfVal('cwfa-client')),c=cwfData().clients.find(function(x){return x.id===clientId;}),summary=cwfVal('cwfa-summary').trim();if(!c){toast('Select a client.');return;}if(!summary){toast('Enter what was completed or communicated.');return;}
+  const date=cwfVal('cwfa-date')||cwfLocalDate(),method=cwfVal('cwfa-method'),nextAction=cwfVal('cwfa-nextAction').trim(),followUpDate=cwfVal('cwfa-followUpDate'),office=cwfVal('cwfa-office'),staff=cwfActor();
+  const d=cwfData();const a={id:d.nextId++,clientRecordId:c.id,clientName:c.name,date,ts:Date.now(),staff,office,method,summary,nextAction,followUpDate,createdBy:cwfActor()};
+  d.activities.unshift(a);d.activities=d.activities.slice(0,5000);
+  c.lastContactDate=date;c.nextAction=nextAction;c.followUpDate=followUpDate;c.clientUpdateSent=true;if(cwfVal('cwfa-updateMethod')==='yes')c.communicationMethod=method;c.updatedAt=Date.now();c.updatedBy=cwfActor();
+  cwfAudit('Logged client contact',c);addLog('Logged client contact: '+c.name,office,cwfActor());
+  cwfSave();closeModal();toast('Client contact logged.');
+}
+
+function cwfCsvEscape(v){const s=String(v==null?'':v);return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s;}
+function cwfDownloadFile(name,content){const blob=new Blob([content],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}
+function cwfExportClientsCsv(){const headers=['Client ID','Client Name','Tax Year','Return Type','Office','Assigned Staff','Reviewer','Preparation Status','IRS Status','All Information Received','TaxSlayer Entered','Numbers Reviewed','Client Update Sent','Client Authorization','Submitted Date','Accepted Date','Rejected Date','Rejection Code','Pending Date','Refund Date','Last Contact','Next Action','Follow-Up Date','Notes'];const rows=cwfFilteredClients().map(function(c){return[c.clientId,c.name,c.taxYear,c.returnType,c.office,c.assignedTo,c.reviewer,c.prepStatus,c.irsStatus,c.docsComplete?'Yes':'No',c.taxSlayerEntered?'Yes':'No',c.numbersReviewed?'Yes':'No',c.clientUpdateSent?'Yes':'No',c.consentReceived?'Yes':'No',c.submittedDate,c.acceptedDate,c.rejectedDate,c.rejectionCode,c.pendingDate,c.refundDate,c.lastContactDate,c.nextAction,c.followUpDate,c.notes];});cwfDownloadFile('OGO_Client_Workflow_'+cwfLocalDate()+'.csv',[headers].concat(rows).map(function(r){return r.map(cwfCsvEscape).join(',');}).join('\n'));}
+function cwfExportWeeklyCsv(){const start=cwfVal('cwfWeekStart'),end=cwfVal('cwfWeekEnd'),clients=cwfWeeklyClients(),ids=new Set(clients.map(function(c){return c.id;})),acts=cwfVisibleActivities().filter(function(a){return a.date>=start&&a.date<=end&&ids.has(a.clientRecordId);}),by={};acts.forEach(function(a){by[a.clientRecordId]=(by[a.clientRecordId]||0)+1;});const headers=['Client ID','Client Name','Tax Year','Office','Assigned Staff','Preparation Status','IRS Status','Contacts This Week','Last Contact','Next Action','Follow-Up Date','Refund Date'];const rows=clients.map(function(c){return[c.clientId,c.name,c.taxYear,c.office,c.assignedTo,c.prepStatus,c.irsStatus,by[c.id]||0,c.lastContactDate,c.nextAction,c.followUpDate,c.refundDate];});cwfDownloadFile('OGO_Weekly_Report_'+start+'_to_'+end+'.csv',[headers].concat(rows).map(function(r){return r.map(cwfCsvEscape).join(',');}).join('\n'));}
+function cwfPrintWeekly(){cwfView='weekly';cwfRender();document.body.classList.add('cwf-print');window.print();setTimeout(function(){document.body.classList.remove('cwf-print');},500);}
 
 /* ── BOOT ── */
 try{CU=JSON.parse(localStorage.getItem(USER_KEY)||'null');}catch(e){CU=null;}
